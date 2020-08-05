@@ -9,6 +9,7 @@ class CashRegister
     end
 
     def add_item(item, price, quantity = nil)
+        #=> should have set quantity = 1, thus avoiding need for if statement
         if quantity != nil
         @total += price * quantity
         quantity.times { @all_items << item }
@@ -36,6 +37,7 @@ class CashRegister
     end
 
     def void_last_transaction
+        #=> deleting last item is added functionality. Test does not require it.
         @all_items.delete(@last_transaction_item)
         @total -= @last_transaction_price
     end
